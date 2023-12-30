@@ -13,7 +13,7 @@ export class UsersService {
   ) {}
 
   create(createUserDto: CreateUserDto) {
-    return 'This action adds a new user';
+    return this.userRepository.save(createUserDto);
   }
 
   async findAll(): Promise<User[]> {
@@ -21,7 +21,10 @@ export class UsersService {
   }
 
   findOne(id: number) {
-    return `This action returns a #${id} user`;
+    return this.userRepository.findOne({
+      where: [ {id : id}],
+      order: { id: 'DESC' }
+    });
   }
 
   update(id: number, updateUserDto: UpdateUserDto) {
@@ -29,6 +32,6 @@ export class UsersService {
   }
 
   remove(id: number) {
-    return `This action removes a #${id} user`;
+    return this.userRepository.delete(id);
   }
 }

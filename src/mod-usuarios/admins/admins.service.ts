@@ -13,7 +13,7 @@ export class AdminsService {
   ) {}
 
   create(createAdminDto: CreateAdminDto) {
-    return 'This action adds a new admin';
+    return this.adminRepository.save(createAdminDto);
   }
 
   async findAll(): Promise<Admin[]> {
@@ -21,7 +21,10 @@ export class AdminsService {
   }
 
   findOne(id: number) {
-    return `This action returns a #${id} admin`;
+    return this.adminRepository.findOne({
+      where: [ {id : id}],
+      order: { id: 'DESC' }
+    });
   }
 
   update(id: number, updateAdminDto: UpdateAdminDto) {
@@ -29,6 +32,6 @@ export class AdminsService {
   }
 
   remove(id: number) {
-    return `This action removes a #${id} admin`;
+    return this.adminRepository.delete(id);
   }
 }

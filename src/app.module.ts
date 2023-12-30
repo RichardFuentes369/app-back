@@ -5,12 +5,13 @@ import { DatabaseModule } from './database/database.module';
 
 import { AdminsModule } from './mod-usuarios/admins/admins.module';
 import { UsersModule } from './mod-usuarios/users/users.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
     DatabaseModule,
     AdminsModule, 
-    UsersModule
+    UsersModule, AuthModule
   ],
   controllers: [AppController],
   providers: [AppService],
