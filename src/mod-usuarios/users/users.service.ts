@@ -27,8 +27,17 @@ export class UsersService {
     });
   }
 
-  update(id: number, updateUserDto: UpdateUserDto) {
-    return `This action updates a #${id} user`;
+  async update(id: number, updateUserDto: UpdateUserDto) {
+
+    const property = await this.userRepository.findOne({
+      where: { id }
+    });
+    
+    return this.userRepository.save({
+      ...property, // existing fields
+      ...updateUserDto // updated fields
+    });
+
   }
 
   remove(id: number) {

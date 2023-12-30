@@ -27,8 +27,15 @@ export class AdminsService {
     });
   }
 
-  update(id: number, updateAdminDto: UpdateAdminDto) {
-    return `This action updates a #${id} admin`;
+  async update(id: number, updateAdminDto: UpdateAdminDto) {
+    const property = await this.adminRepository.findOne({
+      where: { id }
+    });
+    
+    return this.adminRepository.save({
+      ...property, // existing fields
+      ...updateAdminDto // updated fields
+    });
   }
 
   remove(id: number) {
