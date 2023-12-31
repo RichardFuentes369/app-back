@@ -41,4 +41,10 @@ export class AdminsService {
   remove(id: number) {
     return this.adminRepository.delete(id);
   }
+
+  async findUsernameEmail(username: string): Promise<Admin>{
+    return this.adminRepository.findOne({
+      where: [ {email : username}]
+    });
+  }
 }
