@@ -3,8 +3,8 @@ import { UsersService } from './users.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 
-// import { AuthGuard as AuthUserGuard } from '../../mod-auth/authuser/auth.guard';
-// import { AuthGuard as AuthAdminGuard } from '../../mod-auth/authadmin/auth.guard';
+import { AuthGuard as AuthUserGuard } from '../../mod-auth/authuser/auth.guard';
+import { AuthGuard as AuthAdminGuard } from '../../mod-auth/authadmin/auth.guard';
 
 @Controller('users')
 export class UsersController {
@@ -15,13 +15,13 @@ export class UsersController {
     return this.usersService.create(createUserDto);
   }
 
-  // @UseGuards(AuthUserGuard)
+  @UseGuards(AuthAdminGuard)
   @Get()
   findAll() {
     return this.usersService.findAll();
   }
-
-  // @UseGuards(AuthAdminGuard)
+  
+  @UseGuards(AuthUserGuard)
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.usersService.findOne(+id);

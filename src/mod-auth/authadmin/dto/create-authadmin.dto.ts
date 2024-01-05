@@ -8,10 +8,6 @@ export class CreateAuthadminDto {
     @IsString()
     // @Transform(({value}) => value.trim())
     readonly pass;
-
-    @IsNumber()
-    // @Transform(({value}) => value.trim())
-    readonly type;
     
 }
 

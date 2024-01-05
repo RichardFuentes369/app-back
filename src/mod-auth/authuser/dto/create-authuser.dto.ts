@@ -9,10 +9,6 @@ export class CreateAuthuserDto {
     @IsString()
     // @Transform(({value}) => value.trim())
     readonly pass;
-
-    @IsNumber()
-    // @Transform(({value}) => value.trim())
-    readonly type;
     
 }
 

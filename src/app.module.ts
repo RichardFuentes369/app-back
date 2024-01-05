@@ -14,7 +14,7 @@ import { AuthuserModule } from './mod-auth/authuser/authuser.module';
     AdminsModule, 
     UsersModule, 
     AuthadminModule, 
-    AuthuserModule
+    AuthuserModule,
   ],
   controllers: [AppController],
   providers: [AppService],
