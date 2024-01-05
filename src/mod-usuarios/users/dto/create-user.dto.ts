@@ -14,6 +14,10 @@ export class CreateUserDto {
     @IsEmail()
     // @Transform(({value}) => value.trim())
     readonly email;
+    
+    @IsString()
+    // @Transform(({value}) => value.trim())
+    readonly password;
 
     @IsBoolean()
     // @Transform(({value}) => value.trim())
