@@ -3,7 +3,9 @@ import { UsersService } from './users.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 
-import { AuthGuard } from '../../auth/auth.guard';
+// import { AuthGuard as AuthUserGuard } from '../../mod-auth/authuser/auth.guard';
+// import { AuthGuard as AuthAdminGuard } from '../../mod-auth/authadmin/auth.guard';
+
 @Controller('users')
 export class UsersController {
   constructor(private readonly usersService: UsersService) {}
@@ -13,12 +15,13 @@ export class UsersController {
     return this.usersService.create(createUserDto);
   }
 
-  @UseGuards(AuthGuard)
+  // @UseGuards(AuthUserGuard)
   @Get()
   findAll() {
     return this.usersService.findAll();
   }
 
+  // @UseGuards(AuthAdminGuard)
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.usersService.findOne(+id);

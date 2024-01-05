@@ -1,5 +1,5 @@
 import { IsNumber, IsString } from "class-validator";
-export class CreateAuthDto {
+export class CreateAuthadminDto {
 
     @IsString()
     // @Transform(({value}) => value.trim())

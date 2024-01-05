@@ -5,13 +5,16 @@ import { DatabaseModule } from './database/database.module';
 
 import { AdminsModule } from './mod-usuarios/admins/admins.module';
 import { UsersModule } from './mod-usuarios/users/users.module';
-import { AuthModule } from './auth/auth.module';
+import { AuthadminModule } from './mod-auth/authadmin/authadmin.module';
+import { AuthuserModule } from './mod-auth/authuser/authuser.module';
 
 @Module({
   imports: [
     DatabaseModule,
     AdminsModule, 
-    UsersModule, AuthModule
+    UsersModule, 
+    AuthadminModule, 
+    AuthuserModule
   ],
   controllers: [AppController],
   providers: [AppService],
