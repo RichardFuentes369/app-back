@@ -258,7 +258,7 @@
 			"name": "Login",
 			"item": [
 				{
-					"name": "loginAdmin",
+					"name": "loginUser",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -286,7 +286,7 @@
 					"response": []
 				},
 				{
-					"name": "loginUser",
+					"name": "loginAdmin",
 					"request": {
 						"method": "POST",
 						"header": [],
